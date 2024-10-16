@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>OTP Verification Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="login-box">
+    <form class="form">
+      <div class="title">OTP</div>
+      <div class="title">Verification Code</div>
+      <p class="message">We have sent a verification code to your email</p>
+      <div class="inputs">
+        <input id="input1" type="text" maxlength="1" oninput="moveToNext(this, 'input2')" onkeydown="moveToPrev(event, this, null)">
+        <input id="input2" type="text" maxlength="1" oninput="moveToNext(this, 'input3')" onkeydown="moveToPrev(event, this, 'input1')">
+        <input id="input3" type="text" maxlength="1" oninput="moveToNext(this, 'input4')" onkeydown="moveToPrev(event, this, 'input2')">
+        <input id="input4" type="text" maxlength="1" oninput="moveToNext(this, 'input5')" onkeydown="moveToPrev(event, this, 'input3')">
+        <input id="input5" type="text" maxlength="1" oninput="moveToNext(this, 'input6')" onkeydown="moveToPrev(event, this, 'input4')">
+        <input id="input6" type="text" maxlength="1" oninput="moveToNext(this, null)" onkeydown="moveToPrev(event, this, 'input5')">
+      </div>
+      <script>
+        function moveToNext(current, nextFieldID) {
+          if (current.value.length >= current.maxLength) {
+            if (nextFieldID) {
+              document.getElementById(nextFieldID).focus();
+            }
+          }
+        }
+
+        function moveToPrev(event, current, prevFieldID) {
+          if (event.key === 'Backspace' && current.value.length === 0 && prevFieldID) {
+            document.getElementById(prevFieldID).focus();
+          }
+        }
+      </script>
+      <a href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </a>
+    </form>
+  </div>
+</body>
+
+</html>
