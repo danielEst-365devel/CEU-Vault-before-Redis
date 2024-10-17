@@ -1,8 +1,6 @@
 const database = require('../models/connection_db')
 const nodemailer = require('nodemailer');
 const session = require('express-session');
-const user_model = require('../models/user_mod')
-const equipment_model = require('../models/equipment_mod')
 const express = require('express')
 
 // Set up Nodemailer with Gmail SMTP

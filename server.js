@@ -1,8 +1,9 @@
-const HTTP = require('http')
-const app = require('./app')
-const port = 8000
-const server = HTTP.createServer(app)
+const https = require('https');
+const { app, credentials } = require('./app');
+const port = 8000; // Change to a different port if needed
 
-server.listen(port, () => {
-    console.log(`Server is all up in port ${port}`)
-})
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(port, () => {
+    console.log(`HTTPS Server running on port ${port}`);
+});

@@ -773,7 +773,7 @@
 
     // Send JSON data to the API endpoint
     fetch('http://localhost:8000/equipments/insert-details', {
-      method: 'POST',
+      method: 'POST', // Include credentials in the request
       headers: {
         'Content-Type': 'application/json'
       },
@@ -785,7 +785,6 @@
           alert('Form submitted successfully!');
           document.getElementById('main-form').reset(); // Reset form after successful submission
           resetDynamicInputs(); // Reset dynamic inputs to their original state
-          showOTPForm(); // Show OTP form
         } else {
           alert(`Error: ${data.message}`);
         }
@@ -804,10 +803,7 @@
     });
   }
 
-  // Function to show OTP form
-  function showOTPForm() {
-    document.getElementById('otp-form').style.display = 'block';
-  }
+
 
   // Ensure the handleSubmit function is only attached once
   document.addEventListener('DOMContentLoaded', () => {
